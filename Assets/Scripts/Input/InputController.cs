@@ -18,6 +18,8 @@ namespace SpaceShooter
         [SerializeField] private ControlMode m_controlMode;
 
         [SerializeField] private PointerClickHold mobileFirePrimary, mobileFireSecondary;
+
+        [SerializeField] private PauseMenuController pauseMenu;
         #endregion
         #region Unity Events
         private void Start()
@@ -42,6 +44,15 @@ namespace SpaceShooter
             if (m_TargetShip == null) return;
             if (m_controlMode == ControlMode.Keyboard) ControlKeyboard();
             if (m_controlMode == ControlMode.Mobile) ControlMobile();
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                if (pauseMenu.isPaused)
+                {
+                    pauseMenu.OnButtonContinue();
+                }
+                else pauseMenu.OnButtonShowPause();
+            }
+
 #if UNITY_EDITOR
             if (m_controlMode == ControlMode.Mobile) m_Joystick.gameObject.SetActive(true); //”¡–¿“‹
 #endif

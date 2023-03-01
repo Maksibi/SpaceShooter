@@ -131,9 +131,12 @@ namespace SpaceShooter
             {
                 selectedTarget = FindNearestDestructibleTarget();
 
-                MakeLead();
+                if( selectedTarget != null)
+                {
+                    MakeLead();
 
-                findNewTargetTimer.Start(newTargetSearchTime);
+                    findNewTargetTimer.Start(newTargetSearchTime);
+                }
             }
         }
         private void ActionFire()
@@ -179,7 +182,7 @@ namespace SpaceShooter
                 if (dist < maxDist) maxDist = dist;
                 potentialTarget = v;
             }
-            selectedTargetRB = potentialTarget.GetComponent<Rigidbody2D>();
+            if(potentialTarget != null) selectedTargetRB = potentialTarget.GetComponent<Rigidbody2D>();
             return potentialTarget;
         }
         private const float MAX_ANGLE = 45.0f;

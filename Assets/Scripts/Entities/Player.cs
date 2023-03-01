@@ -2,11 +2,12 @@ using UnityEngine;
 
 namespace SpaceShooter
 {
-    public class Player : MonoBehaviour
+    public class Player : MonoSingleton<Player>
     {
         #region Editor Fields
         [SerializeField] private int _livesAmount;
-        [SerializeField] private SpaceShip _Ship;
+        [SerializeField] private SpaceShip ship;
+        public SpaceShip ActiveShip => ship;
         [SerializeField] private GameObject _PlayerShipPrefab;
 
         [SerializeField] private CameraController cameraController;
@@ -14,9 +15,15 @@ namespace SpaceShooter
         #endregion
         private void Start()
         {
-            _Ship.EventOnDeath.AddListener(OnShipDeath);
+            Respawn();
         }
-#region Private API
+        protected override void Awake()
+        {
+            base.Awake();
+
+            if (ship != null) Destroy(ship.gameObject);
+        }
+        #region Private API
         private void OnShipDeath()
         {
             _livesAmount--;
@@ -25,17 +32,38 @@ namespace SpaceShooter
             {
                 Respawn();
             }
+            else LevelSequenceController.Instance.FinishCurrentLevel(false);
         }
         private void Respawn()
         {
-            var newPlayerShip = Instantiate(_PlayerShipPrefab);
+            if(LevelSequenceController.PlayerShip != null)
+            {
+                var newPlayerShip = Instantiate(LevelSequenceController.PlayerShip);
 
-            _Ship = newPlayerShip.GetComponent<SpaceShip>();
-            _Ship.EventOnDeath.AddListener(OnShipDeath);
+                ship = newPlayerShip.GetComponent<SpaceShip>();
+                ship.EventOnDeath.AddListener(OnShipDeath);
 
-            cameraController.SetTarget(_Ship.transform);
-            inputController.SetTargetShip(_Ship);
+                cameraController.SetTarget(ship.transform);
+                inputController.SetTargetShip(ship);
+            }
         }
+        #endregion
+
+        #region Score
+        public int Score { get; private set; }
+        public int NumKills { get; private set; }
+
+        public void AddKill()
+        {
+            NumKills++;
+        }
+        public void AddScore(int num)
+        {
+            Score += num;
+            Debug.Log(Score);
+            Debug.Log(num);
+        }
+
         #endregion
     }
 }

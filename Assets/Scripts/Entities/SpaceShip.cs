@@ -33,11 +33,16 @@ namespace SpaceShooter
         [Header("Space Ship")]
         [SerializeField]
         private float m_mass, m_thrust, m_mobility, m_maxLinearVelocity, m_maxAngularVelocity;
+        public float Agility => m_maxAngularVelocity;
+        public float Speed => m_maxLinearVelocity;
 
 
         [SerializeField] private GameObject impactEffect;
 
         [SerializeField] private GameObject backTrail, leftTrail, rightTrail;
+
+        public Sprite PreviewImage;
+        public string ShipType; 
         #endregion
 
         #region Fields

@@ -32,6 +32,12 @@ namespace SpaceShooter
                 if (destructible != null && destructible != _parent)
                 {
                     destructible.ApplyDamage(damage);
+
+                    if(_parent == Player.Instance.ActiveShip & destructible.CurrentHitpoints <= 0)
+                    {
+                        Player.Instance.AddScore(destructible.Score);
+                        if(destructible.TeamID == 2) Player.Instance.AddKill();
+                    }
                 }
                 OnProjectileLifeEnd(hitRay.collider, hitRay.point);
             }

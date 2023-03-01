@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -14,10 +13,11 @@ namespace SpaceShooter
 
 
         [SerializeField] private int m_hitpoints;
-
+        public int Hitpoints => m_hitpoints;
 
         private int m_currentHitpoints;
-        public int Hitpoints => m_currentHitpoints;
+        public int CurrentHitpoints => m_currentHitpoints;
+
         #endregion
 
         #region Unity Events
@@ -71,6 +71,12 @@ namespace SpaceShooter
 
         [SerializeField] private UnityEvent _EventOnDeath;
         public UnityEvent EventOnDeath => _EventOnDeath;
+
+        #region Score
+        [SerializeField] private int score;
+        public int Score => score;
+
+        #endregion
     }
 }
 

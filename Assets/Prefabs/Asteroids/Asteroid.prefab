@@ -70,9 +70,11 @@ MonoBehaviour:
   m_nickname: 
   m_indestructible: 0
   m_hitpoints: 0
+  teamID: 0
   _EventOnDeath:
     m_PersistentCalls:
       m_Calls: []
+  score: 10
 --- !u!1 &7960503829507818868
 GameObject:
   m_ObjectHideFlags: 0
