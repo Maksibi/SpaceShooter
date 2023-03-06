@@ -4893,7 +4893,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 042a33820a5464842ac0743449e0244e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_nickname: 
+  m_nickname: Missile
   velocity: 5
   lifetime: 3
   damage: 50

@@ -311,12 +311,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 18e1de224fab7a341a9c83ef47e4f7a7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6f8779d7358d8c2459d7d0b5053b6c15, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 1
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.28, y: 1.28}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -427,7 +427,7 @@ MonoBehaviour:
   backTrail: {fileID: 1047613392}
   leftTrail: {fileID: 311619484}
   rightTrail: {fileID: 1280201152}
-  PreviewImage: {fileID: 21300000, guid: 18e1de224fab7a341a9c83ef47e4f7a7, type: 3}
+  PreviewImage: {fileID: 21300000, guid: 086c58d3bd9ae5f48bcbb1064a382c77, type: 3}
   ShipType: Armored
   turrets:
   - {fileID: 927273814}

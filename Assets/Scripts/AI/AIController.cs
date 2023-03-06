@@ -40,7 +40,7 @@ namespace SpaceShooter
 
         private Destructible selectedTarget;
 
-        private Rigidbody2D shipRB, selectedTargetRB;
+        private Rigidbody2D selectedTargetRB;
 
         [SerializeField]private Projectile projectile;
 
@@ -155,12 +155,7 @@ namespace SpaceShooter
         }
         private void MakeLead()
         {
-            var t = (selectedTarget.transform.position - transform.position).magnitude / projectile.Velocity;
-                
-            var futurePos = selectedTarget.transform.position + (Vector3) selectedTargetRB.velocity * t;
-            Debug.DrawLine(transform.position, futurePos, Color.red);
-            Debug.DrawLine(transform.position, movePosition, Color.blue);
-            leadPosition = futurePos;
+            leadPosition = Utils.MakeLead(projectile, selectedTarget.transform, transform, selectedTargetRB);
             movePosition = leadPosition;
         }
         private Destructible FindNearestDestructibleTarget()

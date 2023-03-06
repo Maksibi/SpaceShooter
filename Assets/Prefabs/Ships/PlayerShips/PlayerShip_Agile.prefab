@@ -311,7 +311,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 5fb4977c54da20947a551d0314fb1d97, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 16cabbe54bdfaa046930b435f91dedae, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -427,7 +427,7 @@ MonoBehaviour:
   backTrail: {fileID: 1047613392}
   leftTrail: {fileID: 311619484}
   rightTrail: {fileID: 1280201152}
-  PreviewImage: {fileID: 21300000, guid: 5fb4977c54da20947a551d0314fb1d97, type: 3}
+  PreviewImage: {fileID: 21300000, guid: a93eab6c2650c4d4da0bed5e73038f71, type: 3}
   ShipType: Agile
   turrets:
   - {fileID: 927273814}
