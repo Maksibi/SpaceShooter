@@ -3,4 +3,6 @@
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+# SpaceShooter - An educational project - a top-down space shooter.
+
 Implemented: mobile and desktop controls, including shooting, simple AI with predictive shooting, respawn, spawners, ship selection, TeamID for Destructible objects, level completion conditions, different levels and episodes (for example, multiple levels within a single episode).
